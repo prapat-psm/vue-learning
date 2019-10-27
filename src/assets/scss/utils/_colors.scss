@@ -1,0 +1,5 @@
+@each $color, $value in $grays {
+  .text-color-#{ $gray } {
+    color: $value !important;
+  }
+}
