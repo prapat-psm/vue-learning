@@ -1,5 +1,10 @@
 <template>
-  <div class="container">
+  <div id="app">
+    <app-vuex></app-vuex>
+  </div>
+
+  <!-- Router Tutorial -->
+  <!-- <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <h1 class="text-center">Router</h1>
@@ -8,7 +13,7 @@
         <router-view name="header-bottom"></router-view>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -17,9 +22,12 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import vueResource from "./components/app-resource-db/appResource";
 
+import appVuex from './components/app-vuex/AppVuex'
+
 export default {
   name: 'app',
   components: {
+    'app-vuex' : appVuex
     // HelloWorld,
     // 'appResource': vueResource
   },

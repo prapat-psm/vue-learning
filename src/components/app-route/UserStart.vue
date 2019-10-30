@@ -7,7 +7,7 @@
         <ul class="list-group">
           <router-link
             class="list-group-item"
-            to=""
+            to="/user/1"
             tag="li"
             style="cursor: pointer"
           >
@@ -15,7 +15,7 @@
           </router-link>
           <router-link
             class="list-group-item"
-            to=""
+            to="/user/2"
             tag="li"
             style="cursor: pointer"
           >
@@ -23,7 +23,7 @@
           </router-link>
           <router-link
             class="list-group-item"
-            to=""
+            to="/user/3"
             tag="li"
             style="cursor: pointer"
           >
