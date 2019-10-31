@@ -3,6 +3,7 @@
     <div class="row">
       <app-counter-result></app-counter-result>
       <app-counter-button></app-counter-button>
+      <app-anoter-counter></app-anoter-counter>
       <app-anoter-result></app-anoter-result>
     </div>
   </div>
@@ -11,11 +12,14 @@
 import resultCounter from './Result'
 import anotherResult from './AnotherResult'
 import buttonCounter from './Counter'
+import anotherCounter from './AnotherCounter'
+
 export default {
   components: {
     'app-counter-result' : resultCounter,
     'app-counter-button' : buttonCounter,
     'app-anoter-result' : anotherResult,
+    'app-anoter-counter' : anotherCounter,
   }
 }
 </script>

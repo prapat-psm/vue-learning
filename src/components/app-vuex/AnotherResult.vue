@@ -8,6 +8,7 @@
 export default {
   computed: {
     counter() {
+      // normal getters
       return this.$store.getters.doubleCounter;
     }
   }
