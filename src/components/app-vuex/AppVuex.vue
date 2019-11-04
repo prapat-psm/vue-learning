@@ -44,13 +44,14 @@ export default {
   },
   methods: {
     methUpdateValue(event) {
+      // "updateInputValue" is the name of mutations and use method name in @input
       this.$store.dispatch('updateInputValue', event.target.value);
     }
   },
   components: {
     'app-counter-result' : resultCounter,
     'app-counter-button' : buttonCounter,
-    'app-anoter-result' : anotherResult,
+    'app-anoter-result'  : anotherResult,
     'app-anoter-counter' : anotherCounter,
   }
 }
