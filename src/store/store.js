@@ -7,7 +7,7 @@ import * as actions   from "./actions";
 import * as mutations from "./mutations";
 
 // modules import
-import counterMod from "./modules/counterMod";
+import counterModules from "./modules/counterModules";
 
 Vue.use(Vuex);
 
@@ -21,6 +21,7 @@ export const store = new Vuex.Store({
   mutations,
   actions,
   modules: {
-    counterMod,
-  }
+    counterModules,
+  },
+  strict: true
 })

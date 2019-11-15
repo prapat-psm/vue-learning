@@ -15,6 +15,8 @@
       <div class="col-sm-6">
         <button type="button" class="btn btn-primary btn-lg btn-block" @click="ActDecrement({ by: 200, duration: 1000 })">Decrease</button>
       </div>
+
+      <p @click="rootState()">test rootState</p>
     </div>
   </div>
 </template>
@@ -28,6 +30,7 @@ export default {
       // ActDecrement : 'decrement',
       ActIncrement : 'asyncIncrement',
       ActDecrement : 'asyncDecrement',
+      rootState : 'incrementIfOddOnRootSum',
     }),
     // increment() {
     //   this.$store.commit('increment')

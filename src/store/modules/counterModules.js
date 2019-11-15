@@ -40,6 +40,14 @@ const actions = {
       commit('decrement', payload.by );
     }, payload.duration)
   },
+  incrementIfOddOnRootSum ({ state, commit, rootState }) {
+    console.log('state', state);
+    console.log('rootState', rootState);
+    if ((state.count + rootState.count) % 2 === 1) {
+      commit('increment')
+    }
+  }
+  
 }
 
 export default {
