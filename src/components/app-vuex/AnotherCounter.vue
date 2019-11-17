@@ -16,21 +16,23 @@
         <button type="button" class="btn btn-primary btn-lg btn-block" @click="ActDecrement({ by: 200, duration: 1000 })">Decrease</button>
       </div>
 
-      <p @click="rootState()">test rootState</p>
+      <!-- <p @click="rootState()">test rootState</p> -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import * as named from "../../store/named";
+
 export default {
   methods: {
     ...mapActions({
       // ActIncrement : 'increment',
       // ActDecrement : 'decrement',
-      ActIncrement : 'asyncIncrement',
-      ActDecrement : 'asyncDecrement',
-      rootState : 'incrementIfOddOnRootSum',
+      // rootState : 'incrementIfOddOnRootSum',
+      ActIncrement : named.ACTIONS_INC_COUNTER_ASYNC,
+      ActDecrement : named.ACTIONS_DEC_COUNTER_ASYNC,
     }),
     // increment() {
     //   this.$store.commit('increment')

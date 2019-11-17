@@ -5,11 +5,13 @@
 </template>
 
 <script>
+import * as named from "../../store/named";
+
 export default {
   computed: {
     counter() {
       // normal getters
-      return this.$store.getters.doubleCounter;
+      return this.$store.getters[named.DOUBLE_COUNTER];
     }
   }
 }

@@ -27,16 +27,17 @@ import resultCounter from './Result'
 import anotherResult from './AnotherResult'
 import buttonCounter from './Counter'
 import anotherCounter from './AnotherCounter'
+import * as named from "../../store/named";
 
 export default {
   computed: {
     compUpdateValue: {
       // use get() and set() to bind value.
       get() {
-        return this.$store.getters.gettersInputValue;
+        return this.$store.getters[named.INPUT_VALUE];
       },
       set(v) {
-        this.$store.dispatch('updateInputValue', v)
+        this.$store.dispatch(named.ACTIONS_INPUT_VALUE, v)
       }
       // Normal return getters and bind data with method "methUpdateValue"
       // return this.$store.getters.gettersInputValue;

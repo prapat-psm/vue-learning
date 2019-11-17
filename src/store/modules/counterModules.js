@@ -1,53 +1,76 @@
+import * as named from "../named";
+
 const state = {
   counter: 0,
 };
 
 const getters = {
-  doubleCounter: state => {
+  [named.DOUBLE_COUNTER]: state => {
     return state.counter * 2;
   },
-  clicksCounter: state => {
+  [named.CLICKS_COUNTER]: state => {
     return state.counter + 'Clicks';
   },
 }
 
 const mutations = {
-  increment: (state, payload) => {
+  // increse : (state, payload) => {
+  //   state.counter += payload;
+  // },
+  // decrese : (state, payload) => {
+  //   state.counter -= payload;
+  // },
+  [named.MUTATIONS_INC_COUNTER] : (state, payload) => {
     state.counter += payload;
   },
-  decrement: (state, payload) => {
+  [named.MUTATIONS_DEC_COUNTER] : (state, payload) => {
     state.counter -= payload;
   },
 }
 
 const actions = {
+  // same as bottom but use context.commit. 
   // increment(context) {
-  //   context.commit('increment'); // ---> same as bottom but use context.commit. 
+  //   context.commit('increment');
   // },
-  increment({ commit }, payload) {
-    commit('increment', payload);
+  // actInc ({ commit }, payload) {
+  //   commit('increse' , payload);
+  // },
+  // actDec ({ commit }, payload) {
+  //   commit('decrese' , payload);
+  // },
+  [named.ACTIONS_DEC_COUNTER] ({ commit }, payload) {
+    commit(named.MUTATIONS_DEC_COUNTER , payload);
   },
-  decrement({ commit }, payload) {
-    commit('decrement', payload);
+  [named.ACTIONS_INC_COUNTER] ({ commit }, payload) {
+    commit(named.MUTATIONS_INC_COUNTER , payload);
   },
-  asyncIncrement({ commit }, payload) {
+  [named.ACTIONS_DEC_COUNTER] ({ commit }, payload) {
+    commit(named.MUTATIONS_DEC_COUNTER , payload);
+  },
+  [named.ACTIONS_INC_COUNTER] ({ commit }, payload) {
+    commit(named.MUTATIONS_INC_COUNTER , payload);
+  },
+  [named.ACTIONS_DEC_COUNTER] ({ commit }, payload) {
+    commit(named.MUTATIONS_DEC_COUNTER , payload);
+  },
+  [named.ACTIONS_INC_COUNTER_ASYNC] ({ commit }, payload) {
     setTimeout(() => {
-      commit('increment', payload.by );
+      commit(named.MUTATIONS_INC_COUNTER , payload.by );
     }, payload.duration) // ส่งค่า payload เป็น objects
   },
-  asyncDecrement({ commit }, payload) {
+  [named.ACTIONS_DEC_COUNTER_ASYNC] ({ commit }, payload) {
     setTimeout(function() {
-      commit('decrement', payload.by );
+      commit(named.MUTATIONS_DEC_COUNTER , payload.by );
     }, payload.duration)
   },
-  incrementIfOddOnRootSum ({ state, commit, rootState }) {
-    console.log('state', state);
-    console.log('rootState', rootState);
-    if ((state.count + rootState.count) % 2 === 1) {
-      commit('increment')
-    }
-  }
-  
+  // incrementIfOddOnRootSum ({ state, commit, rootState }) {
+  //   console.log('state', state);
+  //   console.log('rootState', rootState);
+  //   if ((state.count + rootState.count) % 2 === 1) {
+  //     commit('increment')
+  //   }
+  // }
 }
 
 export default {

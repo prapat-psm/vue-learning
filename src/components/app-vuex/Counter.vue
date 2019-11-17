@@ -13,11 +13,13 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import * as named from "../../store/named";
+
 export default {
   methods: {
     ...mapMutations({
-      muInc : 'increment',
-      muDec : 'decrement',
+      muInc : named.MUTATIONS_INC_COUNTER,
+      muDec : named.MUTATIONS_DEC_COUNTER,
     }),
     // increment() {
     //   this.$store.state.counter += 5;

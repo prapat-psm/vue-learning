@@ -2,9 +2,9 @@ import Vue  from 'vue';
 import Vuex from 'vuex';
 
 // split function import
-import * as getters   from "./getters";
-import * as actions   from "./actions";
-import * as mutations from "./mutations";
+import getters   from "./getters";
+import actions   from "./actions";
+import mutations from "./mutations";
 
 // modules import
 import counterModules from "./modules/counterModules";

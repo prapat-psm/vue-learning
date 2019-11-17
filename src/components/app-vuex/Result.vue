@@ -7,14 +7,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import * as named from "../../store/named";
 export default {
   // props: ['counter'], // ใช้ props ในการส่งค่าแบบเก่า
   computed: {
 
     // maping getters
     ...mapGetters({
-      simpleCounter : 'doubleCounter',
-      clickCounter  : 'clicksCounter',
+      simpleCounter : named.DOUBLE_COUNTER,
+      clickCounter  : named.CLICKS_COUNTER
     }),
     // doubleCounter() {
     //   // return this.$store.state.counter;
