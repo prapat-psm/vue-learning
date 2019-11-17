@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <app-vuex></app-vuex>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 
   <!-- Router Tutorial -->
@@ -21,15 +23,16 @@
 
 // import HelloWorld from './components/HelloWorld.vue'
 // import vueResource from "./components/app-resource-db/appResource";
-
-import appVuex from './components/app-vuex/AppVuex'
+// import appVuex from './components/app-vuex/AppVuex'
+// import appTrader from './components/app-trader/Home'
 
 export default {
   name: 'app',
   components: {
-    'app-vuex' : appVuex
     // HelloWorld,
     // 'appResource': vueResource
+    // 'app-vuex' : appVuex
+    // 'app-trader' : appTrader
   },
 }
 

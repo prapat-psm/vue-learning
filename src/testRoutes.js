@@ -31,7 +31,7 @@ const UserDetail = resolve => {
   }, 'user');
 };
 
-export const routes = [
+export const testRoutes = [
   {
     path: '',
     components: {

@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import App from './App.vue';
-// import VueResource from 'vue-resource';
 import VueRouter  from 'vue-router';
-import { routes } from './routes';
+import { traderRoutes } from "./traderRoutes";
 
-import { store } from "./store/store";
+// import VueResource from 'vue-resource';
+// import { testRoutes } from './testRoutes';
+// import { testStore } from "./store/store";
 
-/* eslint-disable */ 
-
-// Vue.use(VueResource);
 Vue.use(VueRouter);
+// Vue.use(VueResource);
 
+/* eslint-disable */
 
 export const eventBus = new Vue({
   methods: {
@@ -20,26 +20,31 @@ export const eventBus = new Vue({
   },
 });
 
-const router = new VueRouter({
-  routes: routes,
-  mode: 'history', // default is hash นั่นจึงเป็นเหตุผลว่าทำไมถึงมี # อยู่บน url ตอนแรก
-  scrollBehavior: function(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        // -- Manually scroll position
-        // x: 0,
-        // y: 900
-        // -- More dynamic 
-        selector: to.hash
-      }
-    }
-  }
-});
-
-router.beforeEach((to, from, next) => {
-  console.log('This is global before each');
-  next();
+const traderRouter = new VueRouter({
+  routes: traderRoutes,
+  mode: 'history',
 })
+
+// const testRouter = new VueRouter({
+//   routes: testRoutes,
+//   mode: 'history', // default is hash นั่นจึงเป็นเหตุผลว่าทำไมถึงมี # อยู่บน url ตอนแรก
+//   scrollBehavior: function(to, from, savedPosition) {
+//     if (to.hash) {
+//       return {
+//         // -- Manually scroll position
+//         // x: 0,
+//         // y: 900
+//         // -- More dynamic 
+//         selector: to.hash
+//       }
+//     }
+//   }
+// });
+
+// testRouter.beforeEach((to, from, next) => {
+//   console.log('This is global before each');
+//   next();
+// })
 
 // set default root for database.
 // Vue.http.options.root = 'https://vue-resume-db.firebaseio.com/';
@@ -57,7 +62,8 @@ router.beforeEach((to, from, next) => {
 // Vue.config.productionTip = false;
 
 new Vue({
-  router: router,
-  store,
+  router: traderRouter,
+  // router: testRouter,
+  // store: testStore,
   render: h => h(App),
 }).$mount('#app');

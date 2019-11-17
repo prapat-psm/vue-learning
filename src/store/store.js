@@ -13,7 +13,7 @@ Vue.use(Vuex);
 
 // don't forget to use 'export' 
 
-export const store = new Vuex.Store({
+export const testStore = new Vuex.Store({
   state: {
     inputValue: 0
   },
