@@ -29,6 +29,10 @@ export const traderRoutes = [
     redirect: { name: 'stocks' },
   },
   {
+    path: '/port',
+    redirect: { name: 'port' },
+  },
+  {
     path: '*',
     redirect: { name: 'error' },
   },

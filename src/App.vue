@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
-      <router-view></router-view>
-    </div>
+    <app-trader></app-trader>
   </div>
 
   <!-- Router Tutorial -->
@@ -24,7 +22,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import vueResource from "./components/app-resource-db/appResource";
 // import appVuex from './components/app-vuex/AppVuex'
-// import appTrader from './components/app-trader/Home'
+import appTrader from './components/app-trader/Trader'
 
 export default {
   name: 'app',
@@ -32,7 +30,7 @@ export default {
     // HelloWorld,
     // 'appResource': vueResource
     // 'app-vuex' : appVuex
-    // 'app-trader' : appTrader
+    'app-trader' : appTrader
   },
 }
 

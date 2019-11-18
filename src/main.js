@@ -5,7 +5,7 @@ import { traderRoutes } from "./traderRoutes";
 
 // import VueResource from 'vue-resource';
 // import { testRoutes } from './testRoutes';
-// import { testStore } from "./store/store";
+// import { testStore } from "./store/testStore";
 
 Vue.use(VueRouter);
 // Vue.use(VueResource);
