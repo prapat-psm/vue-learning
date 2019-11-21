@@ -12,6 +12,11 @@ import Stock from './Stock';
 export default {
   components: {
     'app-stock': Stock,
-  }
+  },
+  computed: {
+    stocks() {
+      return this.$store.getters.stocksGetters;
+    }
+  },
 }
 </script>

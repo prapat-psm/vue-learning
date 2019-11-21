@@ -4,18 +4,6 @@ const state = {
   stocks: []
 };
 
-const actions = {
-  'ACT_BUY_STOCKS' : ({commit}, order) => {
-    commit()
-  },
-  'ACT_INTI_STOCKS' : ({commit}) => {
-    commit('MUTE_SET_STOCKS', stockData);
-  },
-  randomizeStocks: ({commit}) => {
-    commit('RND_STOCKS');
-  }
-};
-
 const mutations = {
   'MUTE_SET_STOCKS' (state, stocksPayload) {
     state.stocks = stocksPayload;
@@ -24,8 +12,20 @@ const mutations = {
   }
 };
 
+const actions = {
+  actBuyStocks : ({commit}, order) => {
+    commit('MUTE_BUY_STOCKS', order);
+  },
+  initStocks : ({commit}) => {
+    commit('MUTE_SET_STOCKS', stockData);
+  },
+  randomizeStocks: ({commit}) => {
+    commit('RND_STOCKS'); // RND => Random
+  }
+};
+
 const getters = {
-  stocks : state => { return state.stocks }
+  stocksGetters : state => { return state.stocks }
 };
 
 export default {
