@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter  from 'vue-router';
 import { traderRoutes } from "./traderRoutes";
+import traderStore from "./trade-store/tradeStore";
 
 // import VueResource from 'vue-resource';
 // import { testRoutes } from './testRoutes';
@@ -63,6 +64,7 @@ const traderRouter = new VueRouter({
 
 new Vue({
   router: traderRouter,
+  store: traderStore,
   // router: testRouter,
   // store: testStore,
   render: h => h(App),

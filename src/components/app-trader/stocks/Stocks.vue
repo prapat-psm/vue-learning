@@ -1,9 +1,17 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        <h1>Stocks Route</h1>
-      </div>
+      <app-stock v-for="(stock, index) in stocks" :key="index" :stockProp="stock"></app-stock>
     </div>
   </div>
 </template>
+
+<script>
+import Stock from './Stock';
+
+export default {
+  components: {
+    'app-stock': Stock,
+  }
+}
+</script>
