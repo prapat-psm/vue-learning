@@ -4,7 +4,7 @@
     <div class="card text-left">
       <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
       <div class="card-body">
-        <h4 class="card-title">{{ stockProp.name }} <small class="">Price: {{ stockProp.price }} | Quantity: {{ stock.quantity }}</small></h4>
+        <h4 class="card-title">{{ stockProp.name }} <small class="">Price: {{ stockProp.price }} | Quantity: {{ stockProp.quantity }}</small></h4>
         <div class="form-group">
           <input
             type="number"
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: ['stockProp'],
   data() {
@@ -37,6 +39,17 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      sellStock : 'actSellStocks'
+    }),
+    sellStock() {
+      const order = {
+        stockId: this.stockProp.id,
+        stockPrice: this.stockProp.price,
+        quantity: this.quantity
+      };
+      this.sellStock();
+    },
     // buyStock() {
     //   const order = {
     //     stockId : this.stockProp.id,

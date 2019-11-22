@@ -7,6 +7,7 @@
 
 <script>
 import Header from "./Header";
+
 export default {
   components: {
     'app-header' : Header,

@@ -19,13 +19,13 @@ const actions = {
   initStocks : ({commit}) => {
     commit('MUTE_SET_STOCKS', stockData);
   },
-  randomizeStocks: ({commit}) => {
+  randomizeStocks : ({commit}) => {
     commit('RND_STOCKS'); // RND => Random
   }
 };
 
 const getters = {
-  stocksGetters : state => { return state.stocks }
+  stocksGetters : state => state.stocks
 };
 
 export default {
