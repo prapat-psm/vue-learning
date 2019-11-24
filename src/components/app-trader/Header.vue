@@ -21,8 +21,11 @@
               <router-link to="/stocks" tag="li" class="nav-item" active-class="active"><a class="nav-link">Stocks</a></router-link>
             </ul>
             <ul class="navbar-nav navbar-right">
-              <router-link to="/" tag="li" class="nav-item"><a class="nav-link">End day</a></router-link>
-              <router-link to="/" tag="li" class="nav-item dropdown">
+              <li class="nav-item"><a class="nav-link" href="#dummy" @click.prevent="endDay">End day</a></li>
+              <li 
+                class="nav-item dropdown"
+                :class="{ open : activeAccd }"
+              >
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -30,15 +33,17 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  @click="activeAccd = !activeAccd"
                 >Save &amp; Load</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <div class="dropdown-menu" aria-labelledby="dropdownId" v-if="activeAccd">
                   <a class="dropdown-item" href="#">Save</a>
                   <a class="dropdown-item" href="#">Load</a>
                 </div>
-              </router-link>
+              </li>
               <li class="nav-item">
               </li>
             </ul>
+            <strong class="navbar-text navbar-right" style="color: white">Funds: {{ funds | currency }}</strong>
             <!-- <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -49,3 +54,35 @@
     </div>
   </div>
 </template>
+<style lang="css" scoped>
+.dropdown.open {
+  
+}
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+</style>
+<script>
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      activeAccd: false,
+    }
+  },
+  computed: {
+    ...mapGetters({
+      funds : 'fundsGetters',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      randomeStocks : 'randomizeStocks',
+    }),
+    endDay() {
+      this.randomeStocks();
+    }
+  }
+}
+</script>

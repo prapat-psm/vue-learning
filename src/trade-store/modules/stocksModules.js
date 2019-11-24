@@ -9,6 +9,9 @@ const mutations = {
     state.stocks = stocksPayload;
   },
   'RND_STOCKS' (state) {
+    state.stocks.forEach(element => {
+      element.price = Math.round(element.price * ( 1 + Math.random() - 0.5)); // Math.round เกิน .5 ปัดขึ้น แต่ Math.floor ไม่ว่าจะ 0. เท่าไร ปัดลง
+    });
   }
 };
 

@@ -8,11 +8,10 @@
         <div class="form-group">
           <input
             type="number"
-            name=""
-            id=""
             class="form-control"
             placeholder="Quantity"
             v-model="quantity"
+            :class="{ danger : insufficientQuantity }"
           >
         </div>
         <div class="form-group mb-0">
@@ -20,13 +19,19 @@
             type="button"
             class="btn btn-primary btn-lg btn-block"
             @click="sellStock"
-            :disabled="quantity <= 0"
-          >SELL</button>
+            :disabled="insufficientQuantity || quantity <= 0"
+          >{{ insufficientQuantity ? 'Not enough stocks' : 'SELL'}}</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style lang="css" scoped>
+  .danger {
+    border: 1px solid red;
+  }
+</style>
 
 <script>
 import { mapActions } from 'vuex';
@@ -38,9 +43,14 @@ export default {
       quantity: 0,
     }
   },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stockProp.quantity
+    }
+  },
   methods: {
     ...mapActions({
-      sellStock : 'actSellStocks'
+      sellStockMeth :'actSellStocks'
     }),
     sellStock() {
       const order = {
@@ -48,18 +58,10 @@ export default {
         stockPrice: this.stockProp.price,
         quantity: this.quantity
       };
-      this.sellStock();
+      
+      this.sellStockMeth(order);
+      this.quantity = 0
     },
-    // buyStock() {
-    //   const order = {
-    //     stockId : this.stockProp.id,
-    //     stockPrice : this.stockProp.price,
-    //     quantity: this.quantity
-    //   }
-    //   console.log(order);
-    //   this.$store.dispatch('actBuyStocks', order)
-    //   this.quantity = 0;
-    // }
   }
 }
 </script>

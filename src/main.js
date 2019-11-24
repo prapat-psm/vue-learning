@@ -9,6 +9,11 @@ import { tradeStore } from "./trade-store/tradeStore";
 // import { testStore } from "./store/testStore";
 
 Vue.use(VueRouter);
+
+Vue.filter('currency', (value) => {
+  return '$' + value.toLocaleString();
+});
+
 // Vue.use(VueResource);
 
 /* eslint-disable */
