@@ -4,17 +4,19 @@ import VueRouter  from 'vue-router';
 import { traderRoutes } from "./traderRoutes";
 import { tradeStore } from "./trade-store/tradeStore";
 
-// import VueResource from 'vue-resource';
+import VueResource from 'vue-resource';
 // import { testRoutes } from './testRoutes';
 // import { testStore } from "./store/testStore";
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
+
+// set default root for database.
+Vue.http.options.root = 'https://vue-resume-db.firebaseio.com/';
 
 Vue.filter('currency', (value) => {
   return '$' + value.toLocaleString();
 });
-
-// Vue.use(VueResource);
 
 /* eslint-disable */
 
@@ -51,9 +53,6 @@ const traderRouter = new VueRouter({
 //   console.log('This is global before each');
 //   next();
 // })
-
-// set default root for database.
-// Vue.http.options.root = 'https://vue-resume-db.firebaseio.com/';
 
 // Vue.http.interceptors.push((request, next) => {
 //   console.log(request);

@@ -25,6 +25,7 @@
               <li 
                 class="nav-item dropdown"
                 :class="{ open : activeAccd }"
+                @click.prevent="activeAccd = !activeAccd"
               >
                 <a
                   class="nav-link dropdown-toggle"
@@ -33,11 +34,10 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  @click="activeAccd = !activeAccd"
                 >Save &amp; Load</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId" v-if="activeAccd">
-                  <a class="dropdown-item" href="#">Save</a>
-                  <a class="dropdown-item" href="#">Load</a>
+                  <a class="dropdown-item" href="#" @click="saveData">Save</a>
+                  <a class="dropdown-item" href="#" @click="loadData">Load</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -55,9 +55,6 @@
   </div>
 </template>
 <style lang="css" scoped>
-.dropdown.open {
-  
-}
 .dropdown.open .dropdown-menu {
   display: block;
 }
@@ -78,10 +75,22 @@ export default {
   },
   methods: {
     ...mapActions({
-      randomeStocks : 'randomizeStocks',
+      randomStocks : 'randomizeStocks',
+      fetchData    : 'loadData'
     }),
     endDay() {
-      this.randomeStocks();
+      this.randomStocks();
+    },
+    saveData() {
+      const data = {
+        funds: this.$store.getters.fundsGetters,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocksGetters
+      };
+      this.$http.put('trade_data.json', data);
+    },
+    loadData() {
+      this.fetchData();
     }
   }
 }
